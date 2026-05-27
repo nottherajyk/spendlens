@@ -1,5 +1,5 @@
 // Simple in-memory IP-based rate limiter
-// At scale, move to Redis (Upstash) for distributed rate limits
+// TODO: this rate limit is in-memory and won't work in a multi-instance serverless deploy. Move to Redis (Upstash) at scale.
 
 interface RateLimitEntry {
   count: number;

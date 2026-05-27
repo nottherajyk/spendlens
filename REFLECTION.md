@@ -48,8 +48,8 @@ One specific time the AI was wrong: I asked Claude to suggest the right Next.js 
 
 | Dimension | Score | Reason |
 |---|---|---|
-| Discipline | 7/10 | Committed work most days but Day 5 was shorter than planned because I underestimated the Resend setup time. |
-| Code quality | 7/10 | The audit engine is clean and well-typed. The API routes could use more consistent error handling. |
-| Design sense | 8/10 | The results page looks good. The form is functional but could be more visually engaging. |
-| Problem-solving | 8/10 | The caching bug and the redundancy logic decision both got resolved well, just not immediately. |
-| Entrepreneurial thinking | 7/10 | The GTM and economics docs show real thinking. The user interviews changed my product framing in a meaningful way. |
+| Discipline | 6/10 | I logged consistent hours but Day 5 was shorter than planned because I underestimated the Resend email template work. I also wasted about three hours on Day 2 trying to over-engineer a 100% deterministic redundancy matrix that I ended up completely throwing away on Day 3. |
+| Code quality | 8/10 | The core audit engine is extremely clean, stateless, and 100% covered by thorough unit tests. The Next.js API endpoints are simple and handle errors cleanly, although I could have isolated some of the Supabase fetch logic more thoroughly. |
+| Design sense | 5/10 | The interface is fully responsive and clean, but standard. I used a simple light B2B SaaS theme with forest green accents which works perfectly for founders, but it lacks advanced visual micro-animations or custom illustrations that a dedicated designer would have added. |
+| Problem-solving | 8/10 | I tracked down the aggressive Next.js App Router edge caching bug efficiently and resolved the Supabase anonymous lead capture RLS policy blocker using a custom server-side error check to prevent silent failures. |
+| Entrepreneurial thinking | 7/10 | The economics and GTM plans represent real bootstrap thinking (like Reddit procrastination timing). The three user interviews directly shaped my decision to focus the copy on "waste" rather than generic "savings," though I didn't have time to implement a full benchmark cohort comparison. |

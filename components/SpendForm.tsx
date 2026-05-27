@@ -18,6 +18,7 @@ export function SpendForm() {
   const router = useRouter();
   
   // Form State
+  // TODO: clean up this local storage parsing, got a bit messy on Day 4 while trying to sync inputs
   const [step, setStep] = useState(1);
   const [teamSize, setTeamSize] = useState<number>(() => {
     if (typeof window !== "undefined") {

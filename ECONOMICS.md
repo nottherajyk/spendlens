@@ -25,25 +25,32 @@ CAC across all channels: effectively $0 cash, ~2–5 hours per deal in founder/t
 
 | Stage | Rate needed | Notes |
 |---|---|---|
-| Visitor → Audit completed | 30% | Reasonable for a free tool with clear value prop |
-| Audit completed → Email captured | 20% | Only triggered when savings > $0 |
-| Email captured → Consultation booked | 10% | Only for high-savings audits (>$500/mo) |
-| Consultation → Credit purchase | 40% | Credex's close rate assumption |
+| Visitor → Audit completed | 30% | Defensible because the tool is free, has no login barrier, and takes under 2 minutes. We assume a 70% drop-off of casual hits who just read the landing page and don't fill out the tools list. |
+| Audit completed → Email captured | 20% | Only triggered when savings > $0. If savings are $0, the user has zero incentive to submit. 20% represents the subset of users who find >$100/mo savings and want the detailed breakdown or PDF delivered. |
+| Email captured → Consultation booked | 10% | This is only targeted at the high-savings cohort (>$500/mo) using the CredexCTA. A 10% book rate assumes that 1 in 10 founders who realize they are throwing away $6,000/yr will jump on a call to solve it. |
+| Consultation → Credit purchase | 40% | This is Credex's historical close rate for warm inbound leads who have already verified their spend and are explicitly looking for pre-negotiated volume discounts. It would be an aggressive close rate for cold sales, but for warm inbounds it is highly realistic. |
 
 At these rates: 1,000 visitors → 300 completions → 60 email captures → 6 consultations → 2.4 deals.
 Revenue from 1,000 visitors: 2.4 × $750 = $1,800 gross profit.
-At $0 CAC and ~$50 in infra costs per 1,000 visitors: contribution margin per 1,000 visitors ≈ $1,750.
+At $0 CAC and ~$50 in infra costs (Vercel, Supabase database storage, Resend transactional emails) per 1,000 visitors: contribution margin per 1,000 visitors ≈ $1,750.
 
 ## Path to $1M ARR in 18 Months
 
-$1M ARR = ~$83k gross profit/month (at 25% margin on credits; this is revenue to Credex of ~$330k/month in credit sales).
+$1M ARR = ~$83k gross profit/month (at 25% margin on credits; this represents gross credit sales of ~$330k/month for Credex).
 
-At $3,000 ACV: need ~110 new customers per month, or ~1,320/year.
+At $3,000 average contract value (ACV): we need ~110 new customers per month, or ~1,320/year.
 
 What would have to be true:
-1. SpendLens drives 5,000+ completed audits/month by month 6. This requires some combination of a viral loop working (shareable URLs driving secondary completions) and at least 2–3 distribution channels producing consistent traffic.
-2. High-savings audit rate stays ≥15% (15% of completions show >$500/mo savings). At 5k completions: 750 high-savings audits → 75 consultations → 30 deals → $22,500 gross profit from SpendLens-sourced leads alone.
-3. Credex supplements with direct sales and other channels to reach the $83k/month target. SpendLens is a meaningful contributor, not the only channel.
-4. Retention: customers who save $500+/mo on AI tools have strong reason to keep buying credits. Assume 60% renewal.
+1. SpendLens drives 5,000+ completed audits/month by month 6. This requires a solid viral loop (e.g., shareable `/audit/[id]` links shared by EMs on Slack driving secondary audits) and 2-3 organic distribution channels remaining highly active.
+2. High-savings audit rate stays ≥15% (15% of all completions show >$500/mo savings). At 5k completions: 750 high-savings audits → 75 consultations → 30 deals → $22,500 gross profit from SpendLens-sourced leads alone.
+3. Credex supplements with direct outbound sales and partnerships to reach the remaining $60,500/month target. SpendLens is a high-utility lead magnet, not the sole engine of the company.
+4. Retention: customers who save $500+/mo on AI tools have strong ongoing reasons to keep buying credits. We assume a 60% renewal rate in year 2.
 
-The $1M ARR scenario is plausible but requires SpendLens to become a genuine top-of-funnel engine, not a one-time campaign asset. That means ongoing content, data-driven social posts from aggregate audit data, and possibly a Slack bot or embeddable version to drive recurring usage.
+The $1M ARR scenario is plausible but requires SpendLens to become a genuine top-of-funnel engine, not a one-time campaign asset. That means ongoing content, social posts using anonymized aggregate data, and probably a Slack integration or an embeddable widget to drive recurring usage.
+
+## Honest Caveats & Risks (Why This Math Could Break)
+
+1. **Lead Quality Drift**: If our traffic comes primarily from r/startups and Indie Hackers, the majority of completions will be solo founders with $40/mo spend. They will show $0 savings and never convert to a Credex credits consultation. The math breaks if we cannot attract Series A/B engineering managers who hold the high-spend budgets.
+2. **Resend Email Sandbox Block**: If users input fake or non-existent emails, our Resend email bounce rate will spike, damaging our domain reputation and landing our transactional emails in spam folders. This would tank the 20% email-to-consultation funnel.
+3. **API Pricing Compression**: If Anthropic and OpenAI cut their model prices by another 50% next quarter, the absolute savings numbers will shrink significantly. An audit showing $120/mo in savings is far less motivating to an EM than one showing $600/mo, directly reducing our consultation book rate.
+4. **Tool Consolidation**: If Cursor or Copilot bundle more capabilities (e.g., Cursor fully replacing Claude Pro for all developers), the redundancy opportunities will decrease, making the audit engine less valuable over time.

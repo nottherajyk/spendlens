@@ -27,23 +27,23 @@ They approve the AI tooling budget (usually $500–$5k/mo), get the invoices, an
 ## First 100 Users in 30 Days, $0 Budget
 
 Week 1:
-- Post a "Show HN" on Hacker News. Title: "Show HN: SpendLens – free AI spend auditor for startup teams." Most Show HNs don't hit front page but the ones with utility that's immediately demonstrable do. Target: 20–40 upvotes, 10–20 conversions.
-- Cold DM 20 founder/EM accounts on X with a personalized audit offer: "I built a tool that might catch overspend on your AI stack — 2 minutes, no login. Would love a real use case to stress-test it." Don't pitch, offer utility. Target: 5 replies, 3 completions.
+- Post on Hacker News on a Tuesday at 9:15 AM EST (right when people are settling in and procrastinating on their first coding task). Title: "Show HN: SpendLens – free AI spend auditor for startup teams." Keep the post text completely raw: explain why the pricing is hard to calculate manually, and list the 8 tools we support. Target: 15-30 upvotes, 20 completions.
+- Cold DM 20 startup founders and EMs on X (specifically targeting those who have posted about their AI bills or are building in the AI space). Offer a simple, no-friction check: "Hey, built this quick tool to check for overpay on Claude/Cursor seats. No login, takes 1 min. Would love your raw feedback." Target: 5 completions.
 
 Week 2:
-- Post in r/SaaS: "I audited my AI tool spend and found $X/mo in waste. Built a tool to do it automatically." Show the audit UI, link the tool. Personal story format outperforms "I made a tool" posts by 3x.
-- Same post adapted for Indie Hackers milestones feed.
+- Post in r/SaaS and r/startups on a Wednesday morning before the EM standups (around 8:45 AM EST). Title: "I was sick of paying for redundant Claude + ChatGPT seats for my 5-person team, so I spent my weekend writing an audit engine." Tell the personal story of finding $140/mo in waste. Real developer pain converts 3x better than generic tool pitches.
+- Post a milestone update on Indie Hackers: "How I built SpendLens in a week to solve my own AI subscription clutter."
 
 Week 3:
-- If the tool has generated ≥10 completed audits, post a data-driven tweet: "10 startup teams audited their AI spend with SpendLens. Average waste found: $X/mo. Here's what they were overpaying for:" — then a breakdown. Real numbers attract real shares.
-- Reach out to 3 newsletter writers who cover AI tooling or startup ops (e.g., The Pragmatic Engineer, TLDR, Lenny's Newsletter tips section). Offer them a free audit of their own stack in exchange for a mention.
+- If we have gathered data from at least 15 completed audits, write an X thread sharing aggregate insights: "I audited 15 startup AI stacks this month. Here's exactly where they are wasting money (average: $240/mo)." Break down the specific findings: e.g., teams paying for ChatGPT Team seats for people who only use the API, or duplicate Windsurf + Cursor subscriptions. Real numbers draw organic shares.
+- Email the writers of developer/SaaS newsletters (like TLDR, ByteByteGo, or the tips inbox of The Pragmatic Engineer). Offer them a custom aggregate stat from our audits that they can use as a quick filler graphic.
 
 Week 4:
-- Repurpose the aggregate audit data into a "State of AI Tool Spend" micro-report. 1-page PDF. Post everywhere. This positions SpendLens as the authoritative source.
+- Package our anonymized data into a raw markdown file called `state_of_ai_spend_2026.md` and upload it to GitHub, then share the repo link on Hacker News and X. Developers love raw data over glossy PDF marketing reports.
 
 ## Unfair Distribution Channel
 
-Credex already has customers — people who bought discounted AI credits. Every existing Credex customer is a warm lead for SpendLens. A single email to the existing customer list ("We built a free tool to find more savings in your AI stack — here's your personal audit link") would generate qualified users immediately, at zero acquisition cost. No cold-start problem with an existing customer base.
+Credex has a list of active users who already bought discounted API credits. They are highly cost-conscious and already trust the brand. Sending a single raw plain-text email to this list ("Hey, we built a free weekend project to audit your subscription seats in 2 minutes. No login, let us know if it finds any duplicate seats") will generate 100+ highly qualified audits on Day 1 for $0. It's the perfect warm-start.
 
 ## Week-1 Traction if This Works
 

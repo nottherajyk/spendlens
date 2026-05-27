@@ -17,19 +17,16 @@ jobs:
         with:
           node-version: 20
           cache: "npm"
-          cache-dependency-path: spendlens/package-lock.json
+          cache-dependency-path: package-lock.json
           
       - name: Install Dependencies
         run: |
-          cd spendlens
           npm ci
           
       - name: Lint Codebase
         run: |
-          cd spendlens
           npm run lint
           
       - name: Run Tests
         run: |
-          cd spendlens
           npm test

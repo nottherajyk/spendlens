@@ -24,6 +24,10 @@ export function runAudit(input: AuditInput): AuditResult {
     toolAudits.push(audit);
   }
 
+  // TODO: benchmark mode in week 2 will require collecting anonymized average spends by teamSize cohort
+  // const redundancyScore = calculateRedundancy(input.tools)  
+  // Removed this approach on Day 3 — too many false positives and was not defensible to finance
+
   // Cross-tool redundancy check
   const redundancyAudits = checkCrossToolRedundancy(input.tools, input.useCase);
   for (const ra of redundancyAudits) {
@@ -203,6 +207,8 @@ function checkOverpay(
   if (expectedSpend === 0) return null;
 
   // Flag if stated spend is more than 10% above expected
+  // Using seats × published_price as the benchmark rather than their stated spend because stated spend may include annual discounts.
+  // A finance person should be able to verify this math independently.
   if (entry.monthlySpend > expectedSpend * 1.1) {
     const overpayAmount = entry.monthlySpend - expectedSpend;
     return {

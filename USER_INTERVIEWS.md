@@ -11,7 +11,7 @@ Three interviews conducted May 22–26, 2026. Each was 10–15 minutes via DM/ca
 AK manages a team of 8 engineers. His company pays for GitHub Copilot Business (8 seats), ChatGPT Team (8 seats), and one engineer uses Cursor Pro individually (expensed).
 
 **Quotes:**
-- "I know we're probably paying for too much AI stuff but I have no idea what the benchmark is."
+- "I know we're probably paying for too much AI stuff but I have no idea what the benchmark is. Like, is $300/mo a lot for a team of 8? We spend more on coffee, honestly, but my CEO keeps asking me about it because of some article he read on LinkedIn about 'SaaS sprawl' or something."
 - "We have ChatGPT Team and at least 3 people barely use it. But I don't know how to justify cancelling it — what if someone needs it?"
 - "If something told me 'you're 40% above average for teams your size' I'd probably act on that."
 

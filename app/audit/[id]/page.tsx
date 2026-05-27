@@ -9,9 +9,9 @@ import { AuditResult } from "@/components/AuditResult";
 export const dynamic = "force-dynamic";
 
 interface AuditPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 // Fetch audit data server-side
@@ -42,7 +42,8 @@ async function getAudit(id: string): Promise<AuditResultType | null> {
 
 // Generate dynamic Metadata for SEO & OG Share preview
 export async function generateMetadata({ params }: AuditPageProps): Promise<Metadata> {
-  const audit = await getAudit(params.id);
+  const { id } = await params;
+  const audit = await getAudit(id);
 
   if (!audit) {
     return {
@@ -59,11 +60,11 @@ export async function generateMetadata({ params }: AuditPageProps): Promise<Meta
     openGraph: {
       title: `My AI Stack Could Save $${audit.totalMonthlySavings}/mo — SpendLens Audit`,
       description: `${toolList} → $${audit.totalMonthlySavings} savings identified. See your audit.`,
-      url: `/audit/${params.id}`,
+      url: `/audit/${id}`,
       type: "website",
       images: [
         {
-          url: `/api/og?id=${params.id}`, // Static placeholder or custom dynamic OG image handler
+          url: `/api/og?id=${id}`, // Static placeholder or custom dynamic OG image handler
           width: 1200,
           height: 630,
           alt: `SpendLens Audit — $${audit.totalMonthlySavings}/mo Potential Savings`,
@@ -74,13 +75,14 @@ export async function generateMetadata({ params }: AuditPageProps): Promise<Meta
       card: "summary_large_image",
       title: `My AI Stack Could Save $${audit.totalMonthlySavings}/mo — SpendLens Audit`,
       description: `${toolList} → $${audit.totalMonthlySavings} savings identified. See your audit.`,
-      images: [`/api/og?id=${params.id}`],
+      images: [`/api/og?id=${id}`],
     },
   };
 }
 
 export default async function AuditPage({ params }: AuditPageProps) {
-  const audit = await getAudit(params.id);
+  const { id } = await params;
+  const audit = await getAudit(id);
 
   if (!audit) {
     notFound();

@@ -68,8 +68,8 @@ export function SpendForm() {
     const plans = TOOLS.cursor?.plans || [];
     return plans.length > 0 ? plans[0] : "";
   });
-  const [currentSpend, setCurrentSpend] = useState<number>(0);
-  const [currentSeats, setCurrentSeats] = useState<number>(1);
+  const [currentSpend, setCurrentSpend] = useState<number | "">(0);
+  const [currentSeats, setCurrentSeats] = useState<number | "">(1);
   const [toolError, setToolError] = useState("");
   const [formError, setFormError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -87,12 +87,15 @@ export function SpendForm() {
   const handleAddTool = () => {
     setToolError("");
 
-    if (currentSpend < 0) {
+    const spendVal = currentSpend === "" ? 0 : currentSpend;
+    const seatsVal = currentSeats === "" ? 1 : currentSeats;
+
+    if (spendVal < 0) {
       setToolError("Spend must be >= 0");
       return;
     }
 
-    if (currentSeats < 1) {
+    if (seatsVal < 1) {
       setToolError("Seats must be >= 1");
       return;
     }
@@ -107,8 +110,8 @@ export function SpendForm() {
     const newEntry: ToolEntry = {
       tool: currentTool,
       plan: currentPlan,
-      monthlySpend: currentSpend,
-      seats: currentSeats,
+      monthlySpend: spendVal,
+      seats: seatsVal,
     };
 
     setSelectedTools([...selectedTools, newEntry]);
@@ -305,7 +308,10 @@ export function SpendForm() {
                     type="number"
                     min={1}
                     value={currentSeats}
-                    onChange={(e) => setCurrentSeats(parseInt(e.target.value) || 1)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setCurrentSeats(val === "" ? "" : parseInt(val) || 1);
+                    }}
                     className="bg-zinc-900 border-white/10 text-white h-10 rounded-lg text-sm"
                   />
                 </div>
@@ -317,7 +323,10 @@ export function SpendForm() {
                     type="number"
                     min={0}
                     value={currentSpend}
-                    onChange={(e) => setCurrentSpend(parseFloat(e.target.value) || 0)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setCurrentSpend(val === "" ? "" : parseFloat(val) || 0);
+                    }}
                     className="bg-zinc-900 border-white/10 text-white h-10 rounded-lg text-sm"
                   />
                 </div>

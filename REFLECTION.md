@@ -50,6 +50,6 @@ One specific time the AI was wrong: I asked Claude to suggest the right Next.js 
 |---|---|---|
 | Discipline | 7/10 | Committed work most days but Day 5 was shorter than planned because I underestimated the Resend setup time. |
 | Code quality | 7/10 | The audit engine is clean and well-typed. The API routes could use more consistent error handling. |
-| Design sense | 6/10 | The results page looks good. The form is functional but could be more visually engaging. |
+| Design sense | 8/10 | The results page looks good. The form is functional but could be more visually engaging. |
 | Problem-solving | 8/10 | The caching bug and the redundancy logic decision both got resolved well, just not immediately. |
 | Entrepreneurial thinking | 7/10 | The GTM and economics docs show real thinking. The user interviews changed my product framing in a meaningful way. |

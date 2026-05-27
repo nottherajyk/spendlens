@@ -75,7 +75,10 @@ export async function POST(request: NextRequest) {
 
     if (insertError) {
       console.error("Lead insert error:", insertError);
-      // Don't fail the request if insert fails
+      return NextResponse.json(
+        { error: `Database error: ${insertError.message || "Failed to capture lead details"}` },
+        { status: 500 }
+      );
     }
 
     // Send transactional email via Resend

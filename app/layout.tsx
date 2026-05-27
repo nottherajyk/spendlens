@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -17,6 +12,9 @@ export const metadata: Metadata = {
   description: "Discover where your team is overpaying for AI tools, what to switch or downgrade, and how much you would save — in under 2 minutes, no login required.",
   keywords: ["AI spend", "SaaS audit", "startup savings", "Cursor pricing", "Copilot vs Cursor", "AI costs"],
   authors: [{ name: "Credex" }],
+  icons: {
+    icon: "/logo.ico",
+  },
   openGraph: {
     title: "SpendLens — AI Spend Audit Tool",
     description: "Discover where your team is overpaying for AI tools, what to switch or downgrade, and how much you would save — in under 2 minutes.",
@@ -32,9 +30,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-indigo-500/30 selection:text-white">
+      <body className="min-h-full flex flex-col bg-white text-zinc-900 selection:bg-emerald-700/20 selection:text-emerald-900 font-sans">
         {children}
       </body>
     </html>

@@ -2,6 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 import { AuditResult as AuditResultType } from "@/types/audit";
 import { AuditResult } from "@/components/AuditResult";
@@ -89,24 +90,22 @@ export default async function AuditPage({ params }: AuditPageProps) {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-zinc-950 text-white selection:bg-indigo-500/30 selection:text-white">
+    <div className="flex flex-col min-h-screen bg-white text-zinc-950 selection:bg-emerald-700/10 selection:text-emerald-950">
       {/* Background Decorative Blobs */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-3xl transform -translate-y-1/2 pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-3xl transform -translate-y-1/2 pointer-events-none" />
       
       {/* Header */}
-      <header className="relative z-10 w-full max-w-5xl mx-auto px-6 h-20 flex items-center justify-between border-b border-white/5">
+      <header className="relative z-10 w-full max-w-5xl mx-auto px-6 h-20 flex items-center justify-between border-b border-zinc-100">
         <Link href="/" className="flex items-center gap-2">
-          <span className="h-8 w-8 bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center font-extrabold text-white text-base shadow-lg shadow-indigo-500/20">
-            SL
-          </span>
-          <span className="font-extrabold tracking-tight text-white text-lg">
-            Spend<span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Lens</span>
+          <Image src="/logo.png" alt="SpendLens Logo" width={28} height={28} className="object-contain" />
+          <span className="font-bold tracking-tight text-zinc-900 text-xl">
+            Spend<span className="text-[#1a7a4a]">Lens</span>
           </span>
         </Link>
         <div>
           <Link
             href="/"
-            className="text-xs font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/10 px-4 py-2 rounded-xl transition-all duration-200"
+            className="text-xs font-semibold bg-[#1a7a4a] hover:bg-[#15633c] text-white px-4 py-2 rounded-full transition-all duration-200 shadow-sm"
           >
             Create New Audit
           </Link>
@@ -119,7 +118,7 @@ export default async function AuditPage({ params }: AuditPageProps) {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t border-white/5 py-8 text-center text-xs text-zinc-500 bg-zinc-950">
+      <footer className="w-full border-t border-zinc-200 py-8 text-center text-xs text-zinc-500 bg-[#f9fafb]">
         <p className="mb-2">© 2026 SpendLens. All rights reserved.</p>
         <p>
           SpendLens is a lead-generation asset powered by{" "}
@@ -127,7 +126,7 @@ export default async function AuditPage({ params }: AuditPageProps) {
             href="https://credex.rocks"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-indigo-400 font-bold hover:underline"
+            className="text-[#1a7a4a] font-bold hover:underline"
           >
             Credex
           </a>

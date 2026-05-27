@@ -74,17 +74,17 @@ export function LeadCapture({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] bg-zinc-950 border border-white/10 text-white rounded-2xl p-6 backdrop-blur-2xl">
+      <DialogContent className="sm:max-w-[425px] bg-white border border-zinc-200 text-zinc-900 rounded-xl p-6 shadow-md">
         <DialogHeader className="space-y-2">
-          <DialogTitle className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <DialogTitle className="text-xl font-bold text-zinc-900 text-left">
             Save & Email Your Report
           </DialogTitle>
-          <DialogDescription className="text-zinc-400 text-xs">
+          <DialogDescription className="text-zinc-500 text-xs text-left">
             We&apos;ll email you a copy of your AI Spend Audit along with dynamic links so you can share it with your team.
           </DialogDescription>
         </DialogHeader>
         
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <form onSubmit={handleSubmit} className="space-y-4 mt-4 text-left">
           {/* Honeypot field (hidden from users, but visible to autocomplete/bots) */}
           <input
             type="text"
@@ -97,8 +97,8 @@ export function LeadCapture({
           />
 
           <div className="space-y-1.5">
-            <Label htmlFor="email" className="text-xs text-zinc-300 font-semibold">
-              Work Email <span className="text-indigo-400">*</span>
+            <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              Work Email <span className="text-[#1a7a4a]">*</span>
             </Label>
             <Input
               id="email"
@@ -107,13 +107,13 @@ export function LeadCapture({
               placeholder="you@company.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-white/5 border-white/10 text-white placeholder-zinc-500 h-10 rounded-lg text-sm"
+              className="bg-white border-zinc-300 text-zinc-900 placeholder-zinc-400 h-10 rounded-lg text-sm focus-visible:ring-[#1a7a4a] focus-visible:ring-offset-1 focus-visible:border-[#1a7a4a]"
             />
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="company" className="text-xs text-zinc-300 font-semibold">
-              Company Name <span className="text-zinc-500 font-normal">(Optional)</span>
+            <Label htmlFor="company" className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              Company Name <span className="text-zinc-400 font-normal">(Optional)</span>
             </Label>
             <Input
               id="company"
@@ -121,13 +121,13 @@ export function LeadCapture({
               placeholder="Acme Corp"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="bg-white/5 border-white/10 text-white placeholder-zinc-500 h-10 rounded-lg text-sm"
+              className="bg-white border-zinc-300 text-zinc-900 placeholder-zinc-400 h-10 rounded-lg text-sm focus-visible:ring-[#1a7a4a] focus-visible:ring-offset-1 focus-visible:border-[#1a7a4a]"
             />
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="role" className="text-xs text-zinc-300 font-semibold">
-              Your Role <span className="text-zinc-500 font-normal">(Optional)</span>
+            <Label htmlFor="role" className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              Your Role <span className="text-zinc-400 font-normal">(Optional)</span>
             </Label>
             <Input
               id="role"
@@ -135,12 +135,12 @@ export function LeadCapture({
               placeholder="Engineering Manager"
               value={role}
               onChange={(e) => setRole(e.target.value)}
-              className="bg-white/5 border-white/10 text-white placeholder-zinc-500 h-10 rounded-lg text-sm"
+              className="bg-white border-zinc-300 text-zinc-900 placeholder-zinc-400 h-10 rounded-lg text-sm focus-visible:ring-[#1a7a4a] focus-visible:ring-offset-1 focus-visible:border-[#1a7a4a]"
             />
           </div>
 
           {error && (
-            <p className="text-xs text-rose-400 font-semibold bg-rose-500/10 border border-rose-500/20 rounded-lg p-2.5">
+            <p className="text-xs text-rose-600 font-semibold bg-rose-500/10 border border-rose-500/20 rounded-lg p-2.5">
               {error}
             </p>
           )}
@@ -150,14 +150,14 @@ export function LeadCapture({
               type="button"
               variant="ghost"
               onClick={() => onOpenChange(false)}
-              className="text-zinc-400 hover:text-white hover:bg-white/5"
+              className="text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100"
             >
               Skip
             </Button>
             <Button
               type="submit"
               disabled={loading}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 h-10 rounded-lg shadow-lg"
+              className="bg-[#1a7a4a] hover:bg-[#15633c] text-white font-bold px-4 h-10 rounded-lg shadow-sm"
             >
               {loading ? "Sending..." : "Email My Report →"}
             </Button>

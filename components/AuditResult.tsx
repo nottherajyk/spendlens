@@ -8,7 +8,6 @@ import { CredexCTA } from "@/components/CredexCTA";
 import { ShareButton } from "@/components/ShareButton";
 import { LeadCapture } from "@/components/LeadCapture";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 interface AuditResultProps {
@@ -87,25 +86,21 @@ export function AuditResult({ audit }: AuditResultProps) {
       />
 
       {/* AI Summary Block */}
-      <Card className="bg-zinc-950/60 border border-indigo-500/20 rounded-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl" />
+      <Card className="bg-white border border-zinc-200 rounded-xl shadow-sm relative overflow-hidden">
         <CardHeader className="pb-2 flex flex-row items-center justify-between">
-          <CardTitle className="text-sm font-bold text-white uppercase tracking-wider">
+          <CardTitle className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">
             AI Advisory Summary
           </CardTitle>
-          <Badge className="bg-indigo-500/10 text-indigo-400 border-indigo-500/20 text-[10px] font-bold uppercase rounded-md px-2 py-0.5">
-            Gemini 1.5 Flash
-          </Badge>
         </CardHeader>
         <CardContent>
           {loadingSummary ? (
             <div className="space-y-2 py-2">
-              <div className="h-4 bg-white/5 rounded animate-pulse w-full" />
-              <div className="h-4 bg-white/5 rounded animate-pulse w-5/6" />
-              <div className="h-4 bg-white/5 rounded animate-pulse w-4/5" />
+              <div className="h-4 bg-zinc-100 rounded animate-pulse w-full" />
+              <div className="h-4 bg-zinc-100 rounded animate-pulse w-5/6" />
+              <div className="h-4 bg-zinc-100 rounded animate-pulse w-4/5" />
             </div>
           ) : (
-            <p className="text-zinc-200 text-sm md:text-base leading-relaxed font-medium">
+            <p className="text-zinc-700 text-sm md:text-base leading-relaxed font-normal">
               {summary}
             </p>
           )}
@@ -120,21 +115,28 @@ export function AuditResult({ audit }: AuditResultProps) {
 
       {/* Conditional "Well Spending" block for optimized setup */}
       {audit.totalMonthlySavings <= 100 && (
-        <Card className="bg-zinc-950/40 border border-white/10 rounded-2xl p-6 md:p-8 text-center space-y-4">
-          <div className="space-y-1.5 max-w-lg mx-auto">
-            <h3 className="text-lg font-bold text-white">Your AI stack is well-optimized!</h3>
-            <p className="text-zinc-400 text-xs md:text-sm leading-relaxed">
-              Great job. You are paying within published benchmarks across all your tooling subscriptions. Sign up for our newsletter to get alerted when major vendor prices change.
-            </p>
+        <Card className="bg-white border border-zinc-200 rounded-xl p-6 md:p-8 space-y-4 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <div className="h-10 w-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </div>
+            <div className="space-y-1.5 flex-1">
+              <h3 className="text-lg font-bold text-zinc-900">Your AI stack is well-optimized!</h3>
+              <p className="text-zinc-600 text-sm leading-relaxed">
+                Great job. You are paying within published benchmarks across all your tooling subscriptions. Sign up for our newsletter to get alerted when major vendor prices change.
+              </p>
+            </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md pt-2 pl-0 sm:pl-14">
             <input 
               type="email" 
               placeholder="you@company.com" 
-              className="flex-1 bg-white/5 border border-white/10 text-white rounded-xl px-4 h-10 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="flex-1 bg-white border border-zinc-300 text-zinc-900 rounded-lg px-4 h-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a7a4a]"
             />
-            <Button className="bg-white text-zinc-950 hover:bg-zinc-200 font-bold px-6 h-10 rounded-xl">
+            <Button className="bg-[#1a7a4a] text-white hover:bg-[#15633c] font-bold px-6 h-10 rounded-lg shadow-sm">
               Stay Optimized
             </Button>
           </div>

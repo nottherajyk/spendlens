@@ -66,12 +66,10 @@ export async function POST(request: NextRequest) {
 
     if (dbError) {
       console.error("Supabase insert error:", dbError);
-      // Still return the audit result even if storage fails
-      return NextResponse.json({
-        id,
-        ...auditResult,
-        warning: "Audit completed but could not be saved. Share link may not work.",
-      });
+      return NextResponse.json(
+        { error: `Database error: ${dbError.message || "Failed to save audit details"}` },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ id, ...auditResult });
